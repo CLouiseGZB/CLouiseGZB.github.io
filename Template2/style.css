@@ -1,0 +1,134 @@
+*{margin: 0px;
+    padding: 0px;}
+    
+    /* menu */
+    header{height: 96px;
+        size: 100%;}
+        
+        div{min-height: 400px;
+            min-width: 559px;}
+        
+        h1,h2{font-family: 'Paytone One', sans-serif;}
+        
+        h1{color: white; 
+            font-size: 60px; 
+            margin-left: 71px;
+            margin-top: 408px;}
+        
+        
+        h2{color: #0691F5; 
+            font-size: 40px;}
+        
+        a {color: #0691F5;
+            font-family: 'Paytone One', sans-serif;
+            transition: all 0.1s ease-out; 
+            text-decoration: none;}
+                  
+        a:hover, a:focus {background-color: #F4F4F4;}
+        
+        .menu{list-style-type: none; 
+            display: flex;
+            justify-content: right; 
+            align-items:center;}
+        
+            nav li a {padding: 20px 30px;
+                border-right: 1px solid #f4f4f4;}
+    /* menu fin */
+    
+    
+    #Pâtisserie{
+        /* border: solid black 4px; */
+        padding-left: 66px;
+        padding-right: 66px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #Pie{display: flex;
+        align-items: center;
+        justify-content: space-between;
+    width: 1200px;
+    /* border: solid black 4px; */
+    }
+    
+    #Pie2{display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 1200px;
+        /* border: solid black 4px; */
+        }
+    
+    figure{display: flex;
+        flex-flow: column;
+        align-items: center;}
+    
+    figcaption{color: #FF9999;
+    font-size: 20px;}
+    
+    /* tableau */
+    #tableau{
+        display: flex;
+        justify-content: center;
+    
+    }
+    
+    
+    table.GeneratedTable {
+      width: 100%;
+      background-color: #ffffff;
+      border-collapse: collapse;
+      border-width: 2px;
+      border-color: #ffcc00;
+      border-style: solid;
+      color: #000000;
+    }
+    
+    table.GeneratedTable td, table.GeneratedTable th {
+      border-width: 2px;
+      border-color: #ffcc00;
+      border-style: solid;
+      padding: 3px;
+    }
+    
+    table.GeneratedTable thead {
+      background-color: #e5bff3;
+    }
+    /* tableau fin */
+    
+    /* formulaire */
+      form div + div {
+        margin-top: 1em;
+      }
+      
+      label {
+        display: inline-block;
+        width: 90px;
+        text-align: right;
+      }
+      
+      input, textarea {
+        font: 1em sans-serif;
+        width: 300px;
+        box-sizing: border-box;
+        border: 1px solid #999;
+      }
+      
+      input:focus, textarea:focus {
+        border-color: #000;
+      }
+      
+      textarea {
+        vertical-align: top;
+      
+        height: 5em;
+      }
+      
+      .button {
+        padding-left: 90px;
+      }
+      
+      button {
+        margin-left: .5em;
+      }
+      

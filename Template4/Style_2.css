@@ -178,13 +178,6 @@ section{
     padding: 20px;
 }
 
-/* .partiehaut{
-    display: flex;
-    flex-direction: column;
-    margin-right: 100px;
-   
-} */
-
 figcaption{
     font-family: Sans-serif;
 font-style: normal;
@@ -228,6 +221,18 @@ color: #666666;}
     border: solid orange 4px;
     height: fit-content;
     width: 600px;
+}
+
+#tailles{
+    border: solid fuchsia 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn_tailles{
+    height: 30px;
+    width: 50px;
 }
 
 #btn{

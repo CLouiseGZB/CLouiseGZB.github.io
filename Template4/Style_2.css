@@ -213,11 +213,9 @@ color: #666666;}
     flex-direction: column;
     justify-content: space-between;
     width: 40%;
-    /* height: fit-content; */
 }
 
 .Espaces{
-    /* line-height: 2em; */
     border: solid orange 4px;
     height: fit-content;
     width: 600px;
@@ -232,7 +230,11 @@ color: #666666;}
 
 .btn_tailles{
     height: 30px;
-    width: 50px;
+    width: 40px;
+    border: #D1D1D1 solid 2px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 14px;
 }
 
 #btn{

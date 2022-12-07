@@ -77,11 +77,23 @@ margin: 0px 32px 0px 32px;}
     font-weight: bold;}
 
 /* liste déroulante */
-#dropdown-menu{
-    background-position: bottom;
-    min-width: 230px;
-}
+#barre ul li ol{ 
+    display:none; /* Rend le menu déroulant caché par défaut */
+    } 
 
+    #barre li:hover ol { /* Affiche la dropNav au survol de la souris avec la class .drop */
+        /* z-index:99999; */
+        display:list-item !important;
+        position:absolute;
+        background-color: #525050;
+        border: #000000 solid 4px;
+        }
+
+        nav ul li:hover ol li {
+            float:none;
+            
+            }
+    
 /* liste déroulante fin */
 
 

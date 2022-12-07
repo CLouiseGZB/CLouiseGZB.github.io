@@ -120,17 +120,13 @@ margin: 0px 32px 0px 32px;}
     #search{border-radius: 50px;
     border: 0px;
     height: 38px;
-    /* margin-top: 20px; */
     color: dimgray;
-    
-
-/* width: 100%; */
     padding-left: 40px;
     font-size: 15px;}
     
     #btn{
         border: solid transparent;
-        /* background-color: white; */
+        background-color: white;
     border-radius:18px;
     width: 60px;
     height: 38px;

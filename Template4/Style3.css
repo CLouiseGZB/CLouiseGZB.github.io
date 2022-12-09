@@ -8,7 +8,11 @@ a{text-decoration: none;
     transition: all 0.2s ease-out;
 }
 
-a:visited{color: inherit;}
+header a:visited{color: white;}
+
+a:visited{
+    color: initial;
+}
 
 /* entête */
 #entête{

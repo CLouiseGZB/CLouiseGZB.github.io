@@ -113,8 +113,8 @@ ol li:hover, a:focus{
     color: dimgray;
     padding-left: 40px;
     font-size: 15px;}
-
-    /* bouton */
+   
+/*bouton loupe  */
     #btn{
     border: solid transparent;
     background-color: white;
@@ -124,7 +124,7 @@ ol li:hover, a:focus{
     font-size: 25px;
     cursor: pointer;
     margin-right: 400px;}
-    /* bouton fin */
+/* bouton loupe fin */
 /* barre de recherche fin */
 
 #logo_asos{width: 60px;}

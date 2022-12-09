@@ -9,6 +9,8 @@ a{text-decoration: none;
 
 header a:visited{color: white;}
 
+a:visited{color: initial; }
+
 /* entête */
 
 

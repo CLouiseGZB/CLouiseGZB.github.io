@@ -266,6 +266,8 @@ p{font-family: sans-serif;
 
 
  /* tableau */
+.Tableau{display: none;}
+
 thead{height: 50px;}
 
 table.Tableau {width: 400px;

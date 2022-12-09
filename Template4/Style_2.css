@@ -81,19 +81,18 @@ margin: 0px 32px 0px 32px;}
     display:none; /* Rend le menu déroulant caché par défaut */
     } 
 
-    #barre li:hover ol { /* Affiche la dropNav au survol de la souris avec la class .drop */
-        /* z-index:99999; */
-        display:list-item !important;
-        position:absolute;
-        background-color: #525050;
-        border: #000000 solid 4px;
-        }
+#barre li:hover ol {
+    display:list-item !important;
+    position:absolute;
+    background-color: #525050;
+    border: #000000 solid 4px;
+}
 
-        nav ul li:hover ol li {
-            float:none;
-            
-            }
+nav ul li:hover ol li {
+    float:none;
+}
     
+ol:hover, a:focus
 /* liste déroulante fin */
 
 
@@ -171,15 +170,8 @@ line-height: 34px;
 text-align: center;
 }
 
-
-/* img:hover{
-    -ms-transform: scale(2); /* IE 9 /
-    -webkit-transform: scale(2); / Safari 3-8 */
-    /* transform: scale(2);
-    } */
-
 .Partie1{
-    border: solid black 4px;
+    /* border: solid black 4px; */
     padding: 3px;
 }
 
@@ -242,13 +234,13 @@ color: #666666;}
 
 /* article détails */
 .Partie2{
-    border: solid turquoise 4px;
+    /* border: solid turquoise 4px; */
     display: flex;
     justify-content: space-around;
 }
 
 h5{
-    border: solid red 4px;
+    /* border: solid red 4px; */
 margin-left: 100px;
 width: fit-content;
 font-size: 30px;
@@ -296,4 +288,4 @@ footer{
     height: 300px;
     margin-top: 50px;
     }
- /*footer fin */ 
+/*footer fin */ 

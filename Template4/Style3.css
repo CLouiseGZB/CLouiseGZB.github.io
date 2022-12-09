@@ -164,6 +164,23 @@ section{
     padding: 100px 10px;
 height: 1050px;
 }
+
+.partiehaut{
+    /* border: solid yellow 4px; */
+    height: fit-content;
+    padding: 3px;
+}
+
+#historique{
+    font-size: smaller;
+    color: #666666;}
+    
+    #historique a:hover, #historique a:focus{
+        text-decoration: underline ;
+    }
+    
+
+figure{color: #2D2D2D;}
 /* body fin */
 
 /* footer */

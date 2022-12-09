@@ -7,7 +7,7 @@ ul, ol{list-style: none;}
 a{text-decoration: none;
     transition: all 0.2s ease-out;}
 
-a:visited{color: inherit;}
+a:visited{color: white;}
 
 /* entête */
 
@@ -78,21 +78,23 @@ margin: 0px 32px 0px 32px;}
 
 /* liste déroulante */
 #barre ul li ol{ 
-    display:none; /* Rend le menu déroulant caché par défaut */
-    } 
+    display:none;}
 
 #barre li:hover ol {
     display:list-item !important;
     position:absolute;
     background-color: #525050;
-    border: #000000 solid 4px;
-}
+    border: #2D2D2D solid 1px;}
 
 nav ul li:hover ol li {
     float:none;
+    color: white;
 }
     
-ol:hover, a:focus
+ol li:hover, a:focus{
+    background-color: #666666;
+    color: white;
+}
 /* liste déroulante fin */
 
 
@@ -116,6 +118,7 @@ ol:hover, a:focus
     
     #btn{
     border: solid transparent;
+    background-color: white;
     border-radius:18px;
     width: 60px;
     height: 38px;
@@ -275,7 +278,6 @@ table.Tableau td, table.Tableau th {
   width: 10px;
   height: 10px;}
 /* tableau fin */
-
 /* body fin */
 
 /* footer */

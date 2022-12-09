@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="Style_2.css">
     <link rel="icon" type="image/svg" sizes="16x16" href="Images/Icon_asos.svg">
     
-
+<!-- entête -->
     <div id="entête">
         <ul id="liste_entête">
             <span ><li class="liste"><a href="">Marketplace</a></li></span>
@@ -27,15 +27,17 @@
 </head>
 
 <header>
-    <!-- <div id="container"> -->
         <div id="barre">
         <ul id="liste_barre">
             <li>
-                <a href="#"><img id ="logo_asos" src="Images/asos-logo.png" alt="Logo_ASOS"></a>
+                <a href="../Template4/index.html"><img id ="logo_asos" src="Images/asos-logo.png" alt="Logo_ASOS"></a>
             </li>
+<!-- entête fin -->
             
-            
+            <!-- barre gris foncé -->
                 <li class="bouton_barre" ><a href="#">FEMMES</a>
+
+<!-- liste déroulante -->
                     <ol>
                         <a href="../Template4/Articles.html"><li>Vêtements</li></a>
                         <a href="#"><li>Lingerie</li></a>
@@ -43,10 +45,11 @@
                         <a href="#"><li>Chaussures</li></a>
                     </ol>
                 </li>
+<!-- liste déroulante fin -->
 
                 <li class="bouton_barre" ><a href="#">HOMMES</a></li>
             
-            
+    <!--barre de recherche  -->
                 <li><form role="search">
                     <div id="recherche">
                         <input type="search" id="search" name="q" placeholder="Rechercher des articles et des marques" size="60"
@@ -54,13 +57,16 @@
                         <button id="btn">🔎</button>
                     </div>
                 </li>
+<!-- barre de recherche fin -->
 
                 <li ><a href=""><img class="icon_barre" src="Images/icon _person_.png" alt="icone-compte"></a></li>
             <li ><a href=""><img class="icon_barre" src="Images/icon _heart_.png" alt="icon-favoris"></a></li>
             <li><a href=""><img class="icon_barre" src="Images/icon _shopping bag_.png" alt="icone-panier"></a></li>
         </ul>
     </div>
+<!-- barre gris foncé fin -->
 
+<!--barre gris clair  -->
     <nav> 
         <ul id="menu">
             <div id="navigation">
@@ -82,7 +88,9 @@
         </ul>
     </nav>
 </header>
+<!-- barre gris clair -->
 
+<!-- body -->
 <body>
 <section class="Partie1">
     <div class="partiehaut">
@@ -114,9 +122,9 @@
 </ul>
 <br>
 <button id="btn">AJOUTER AU PANIER</button>
+</div>
 
-    </div>
-
+<!-- tableau -->
         <table class="Tableau">
             <thead>
                  <tr>
@@ -221,13 +229,13 @@
                 </tr>
             </tbody>
         </table>
+<!-- tableau fin -->
 </div>
 </section>
 
 <h5>Aperçus</h5>
 
 <section class="Partie2">
-            <!-- <article> -->
         <figure>
             <img id="Dos" src="../Party_dress/Robe_noire_dos_nus_dos.jpeg" alt="Dos-robe-dos-nus-à_paillettes-noires" width="400">
 
@@ -245,28 +253,29 @@
 
             <figcaption>Buste</figcaption>
         </figure>
+</section>
  </body>
+        
 
 <footer>
+   
+    <h4>Contactez-nous</h4>
 
-    <div id="contact">
-        <h4>Contactez nous</h4>
+    <form action="/my-handling-form-page" method="post">
+        <div>
+          <label for="name">Nom&nbsp;:</label>
+          <input type="text" id="name" name="user_name" />
+        <div>
+        <div>
+          <label for="mail">E-mail&nbsp;:</label>
+          <input type="email" id="mail" name="user_email" />
+        </div>
+        <div>
+          <label for="msg">Message :</label>
+          <textarea id="msg" name="user_message"></textarea>
+        </div>
+      </form>
 
-        <form action="/my-handling-form-page" method="post">
-            <div>
-              <label for="name">Nom&nbsp;:</label>
-              <input type="text" id="name" name="user_name" />
-            <div>
-            <div>
-              <label for="mail">E-mail&nbsp;:</label>
-              <input type="email" id="mail" name="user_email" />
-            </div>
-            <div>
-              <label for="msg">Message :</label>
-              <textarea id="msg" name="user_message"></textarea>
-            </div>
-          </form>
-    </div>
 
     <p>© Cloison Louisiane - 2022</p>
 

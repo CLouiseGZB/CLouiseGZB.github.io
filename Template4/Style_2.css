@@ -7,7 +7,7 @@ ul, ol{list-style: none;}
 a{text-decoration: none;
     transition: all 0.2s ease-out;}
 
-a:visited{color: white;}
+a:visited{color: inherit;}
 
 /* entête */
 
@@ -115,7 +115,8 @@ ol li:hover, a:focus{
     color: dimgray;
     padding-left: 40px;
     font-size: 15px;}
-    
+   
+/*bouton loupe  */
     #btn{
     border: solid transparent;
     background-color: white;
@@ -125,6 +126,7 @@ ol li:hover, a:focus{
     font-size: 25px;
     cursor: pointer;
     margin-right: 400px;}
+/* bouton loupe fin */
 /* barre de recherche fin */
 
 #logo_asos{width: 60px;}
@@ -223,7 +225,7 @@ color: #666666;}
     cursor: pointer;
 }
 
-#btn{
+button #btn{
     background-color: #2D2D2D;
     color: #ffffff;
     border-radius: 0%;

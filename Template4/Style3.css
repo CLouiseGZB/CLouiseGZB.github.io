@@ -6,9 +6,9 @@ ul, ol{list-style: none;}
 
 a{text-decoration: none;
     transition: all 0.2s ease-out;
-color: initial;}
+}
 
-a:visited{color: initial;}
+a:visited{color: inherit;}
 
 /* entête */
 #entête{
@@ -117,7 +117,7 @@ ol li:hover, a:focus{
         padding-left: 40px;
         font-size: 15px;}
         
-        #btn{
+    button #btn{
         border: solid transparent;
         background-color: white;
         border-radius:18px;

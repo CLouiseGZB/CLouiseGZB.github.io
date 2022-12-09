@@ -7,11 +7,9 @@ ul, ol{list-style: none;}
 a{text-decoration: none;
     transition: all 0.2s ease-out;}
 
-a:visited{color: white;}
+a:visited{color: inherit;}
 
 /* entête */
-
-
 #entête{
 /* border: solid red 4px; */
 display: flex;
@@ -115,7 +113,8 @@ ol li:hover, a:focus{
     color: dimgray;
     padding-left: 40px;
     font-size: 15px;}
-    
+
+    /* bouton */
     #btn{
     border: solid transparent;
     background-color: white;
@@ -125,6 +124,7 @@ ol li:hover, a:focus{
     font-size: 25px;
     cursor: pointer;
     margin-right: 400px;}
+    /* bouton fin */
 /* barre de recherche fin */
 
 #logo_asos{width: 60px;}

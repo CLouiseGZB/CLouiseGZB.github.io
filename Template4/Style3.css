@@ -9,6 +9,7 @@ a{text-decoration: none;
     
 }
 
+li{color: initial;}
 
 header a:visited{color: white;}
 
@@ -187,6 +188,8 @@ height: 1050px;
     
 
 figcaption{color: #2D2D2D;}
+
+figcaption:visited{color: initial;}
 /* body fin */
 
 /* footer */

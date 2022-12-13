@@ -247,8 +247,9 @@ text-decoration:underline;
 transition: 0.3s;
 }
 
+figcaption{color: #2D2D2D;}
 
-
+figcaption:visited{color: initial;}
 
 /* h1 et p */
 #rouge{

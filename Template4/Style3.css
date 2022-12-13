@@ -9,7 +9,6 @@ a{text-decoration: none;
     
 }
 
-a ul, ol{color: #ffffff;}
 
 header a:visited{color: white;}
 
@@ -187,7 +186,7 @@ height: 1050px;
     }
     
 
-figure{color: #2D2D2D;}
+figcaption{color: #2D2D2D;}
 /* body fin */
 
 /* footer */

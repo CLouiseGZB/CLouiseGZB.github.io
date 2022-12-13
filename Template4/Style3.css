@@ -185,6 +185,8 @@ height: 1050px;
     #historique a:hover, #historique a:focus{
         text-decoration: underline ;
     }
+
+    #historique:visited{color: initial;}
     
 
 figcaption{color: #2D2D2D;}

@@ -189,7 +189,7 @@ height: 1050px;
 
 figcaption{color: #2D2D2D;}
 
-figcaption:visited{color: initial;}
+figcaption:visited{color: inherit;}
 /* body fin */
 
 /* footer */

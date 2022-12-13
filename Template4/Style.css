@@ -312,8 +312,17 @@ footer{
     }
  /*footer fin */ 
 
- @media only screen and (min-width: 600px) {
-    #entête{width: 100%;
-    padding: 0px;}
+ @media screen and (max-width: 1440px) and (min-width: 320px) {
+    #barre{max-width: 100%;
+    border: solid orchid 4px;
+    }
+
+    #liste_barre{font-size: 0.9em;}
+
+    #search{width: 100px;}
+
+    #Momment{max-width: 100%;
+    border: solid orange 4px;
+    gap: 20px;}
     
     }

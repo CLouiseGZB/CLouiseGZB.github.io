@@ -5,7 +5,8 @@
 ul, ol{list-style: none;}
 
 a{text-decoration: none;
-    transition: all 0.2s ease-out;}
+    transition: all 0.2s ease-out;
+    color: #ffffff;}
 
  header a:visited{color: white;}
 

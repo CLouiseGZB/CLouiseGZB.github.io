@@ -338,13 +338,14 @@ width: 100%;}
 
     #xmas{
         /* border: crimson solid 4px; */
-        height: 500px;
+        height: 450px;
     width: 100%;
 /* font-size: 0.3em; */
 margin: 0;
+/* padding: ; */
 }
 
-#xmas ,p{font-size: 18px;}
+
 
 #xmas_pack{
     /* border: fuchsia solid 4px; */

@@ -195,7 +195,9 @@ text-align: center;
 
 #historique{
 font-size: smaller;
-color: #666666;}
+color: #666666;
+/* margin-left: 20px; */
+}
 
 #historique a:hover, #historique a:focus{
     text-decoration: underline ;

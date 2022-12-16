@@ -21,11 +21,11 @@ span{border-left: solid #D1D1D1 1px;}
 /* entête */
 
 /* barre foncé */
-#barre{background-color: #2D2D2D; color: white; /* border: solid orange 4px; */ display: flex; align-items: center; justify-content: space-around; height: 60px; width: 100%;}
+.barre{background-color: #2D2D2D; color: white; /* border: solid orange 4px; */ display: flex; align-items: center; justify-content: space-around; height: 60px; width: 100%;}
 
-#barre a{color: #ffffff;}
+.barre a{color: #ffffff;}
 
-#liste_barre{/* border: solid blue 4px; */ display: flex; flex-wrap:wrap; align-items:center; justify-content: space-evenly; width: 100%; margin: 0px 32px 0px 32px;}
+.liste_barre{/* border: solid blue 4px; */ display: flex; flex-wrap:wrap; align-items:center; justify-content: space-evenly; width: 100%; margin: 0px 32px 0px 32px;}
 
 #container{border: solid green 4px; display: flex; align-items: center; justify-content: space-around;}
 
@@ -34,9 +34,9 @@ span{border-left: solid #D1D1D1 1px;}
 .bouton_barre{padding: 18px; font-weight: bold;}
 
 /* liste déroulante */
-#barre ul li ol{display:none;}
+.barre ul li ol{display:none;}
 
-#barre li:hover ol {display:list-item !important; position:absolute; background-color: #525050; border: #2D2D2D solid 1px;}
+.barre li:hover ol {display:list-item !important; position:absolute; background-color: #525050; border: #2D2D2D solid 1px;}
 
 nav ul li:hover ol li {float:none; color: white;}
     
@@ -47,7 +47,7 @@ ol li:hover, a:focus{background-color: #666666; color: white;}
 .icon_barre{/* border: solid red 4px; */ height: 20px; width: 20px; display: flex;}
 
 /* barre de recherche */
-#recherche{display: flex; flex-direction: row; align-items: center;}
+.recherche{display: flex; flex-direction: row; align-items: center;}
     
 #search{border-radius: 50px; border: 0px; height: 38px; color: dimgray; padding-left: 40px; font-size: 15px;}
    
@@ -56,14 +56,14 @@ ol li:hover, a:focus{background-color: #666666; color: white;}
 /* bouton loupe fin */
 /* barre de recherche fin */
 
-#logo_asos{width: 60px;}
+.logo_asos{width: 60px;}
 /* barre foncé fin */
 
 
 /* barre gris clair */
 nav{list-style: none;}
 
-#navigation{/* border: solid fuchsia 4px; */ background-color: #525050; display: flex; flex-direction: row; align-items: center; justify-content: space-around; height: 50px; width: 100%; font-size: 14px; color: #ffffff;}
+.navigation{/* border: solid fuchsia 4px; */ background-color: #525050; display: flex; flex-direction: row; align-items: center; justify-content: space-around; height: 50px; width: 100%; font-size: 14px; color: #ffffff;}
 
 .liste_navigation:hover, a:focus {background-color: white; color:#525050;}
 

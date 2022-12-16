@@ -55,7 +55,6 @@ ol li:hover, a:focus{background-color: #666666; color: white;}
 .logo_asos{width: 60px;}
 /* barre foncé fin */
 
-
 /* barre gris clair */
 nav{list-style: none;}
 
@@ -85,17 +84,16 @@ figcaption{font-family: Sans-serif; font-style: normal; font-weight: normal; fon
 
 #historique a:hover, #historique a:focus{text-decoration: underline ;}
 
-#texte_photo{/* border: solid green 4px; */ display: flex; flex-direction: column; justify-content: space-between; width: 40%;
-}
+#texte_photo{/* border: solid green 4px; */ display: flex; flex-direction: column; justify-content: space-between; width: 40%;}
 
 .Espaces{/* border: solid orange 4px; */ height: fit-content; width: 600px;}
 
 #tailles{/* border: solid fuchsia 4px; */ display: flex; align-items: center; justify-content: space-around;}
 
-.btn_tailles{height: 30px; width: 40px; border: #D1D1D1 solid 2px; border-radius: 8px; background-color: #ffffff; font-size: 14px; cursor: pointer;
-}
+.btn_tailles{height: 30px; width: 40px; border: #D1D1D1 solid 2px; border-radius: 8px; background-color: #ffffff; font-size: 14px; cursor: pointer;}
 
 #btn2{background-color: #2D2D2D; color: #ffffff; border-radius: 0%; display: flex; font-size: 14px; padding: 5px; width: fit-content; height: 35px; margin: 30px;}
+
 
 /* article détails */
 .Partie2{/* border: solid turquoise 4px; */ display: flex; justify-content: space-around;}

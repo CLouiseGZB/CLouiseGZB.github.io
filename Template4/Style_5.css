@@ -88,7 +88,7 @@ figcaption{font-family: Sans-serif; font-style: normal; font-weight: normal; fon
 
 .btn_tailles{height: 30px; width: 40px; border: #D1D1D1 solid 2px; border-radius: 8px; background-color: #ffffff; font-size: 14px; cursor: pointer;}
 
-#btn2{background-color: #2D2D2D; color: #ffffff; border-radius: 0%; display: flex; font-size: 14px; padding: 5px; width: fit-content; height: 35px; margin: 30px;}
+#btn2{background-color: #2D2D2D; color: #ffffff; border-radius: 0%; display: flex; font-size: 14px; padding: 5px; width: fit-content; height: 35px; margin: 30px;cursor: pointer;}
 
 
 /* article détails */

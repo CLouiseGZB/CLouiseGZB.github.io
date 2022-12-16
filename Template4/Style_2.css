@@ -240,6 +240,7 @@ color: #666666;}
     width: fit-content;
     height: 35px;
     margin: 30px;
+    cursor: pointer;
 }
 
 /* article détails */

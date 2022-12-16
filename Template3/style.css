@@ -35,7 +35,7 @@
     
     table.GeneratedTable {width: 100%; background-color: #ffffff; border-collapse: collapse; border-width: 2px; border-color: #ffcc00; border-style: solid; color: #000000;}
     
-    table.GeneratedTable td, table.GeneratedTable th {border-width: 2px; border-color: #ffcc00;order-style: solid; padding: 3px;}
+    table.GeneratedTable td, table.GeneratedTable th {border-width: 2px; border-color: #ffcc00; border-style: solid; padding: 3px;}
     
     table.GeneratedTable thead {background-color: #e5bff3;}
     /* tableau fin */

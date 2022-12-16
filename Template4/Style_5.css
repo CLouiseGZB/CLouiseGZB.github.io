@@ -7,8 +7,6 @@ a{text-decoration: none; transition: all 0.2s ease-out; color: #ffffff;}
 a:visited{color: white;}
 
 /* entête */
-
-
 #entête{/* border: solid red 4px; */ display: flex; justify-content: flex-end; padding: 0px 32px;}
 
 #liste_entête{/* border: solid green 4px; */ display: flex; flex-direction: row; align-items: center; justify-content: space-around; height: 30px; max-width: 1366px; color: #666666; font-size: 14px;}
@@ -26,8 +24,6 @@ span{border-left: solid #D1D1D1 1px;}
 .barre a{color: #ffffff;}
 
 .liste_barre{/* border: solid blue 4px; */ display: flex; flex-wrap:wrap; align-items:center; justify-content: space-evenly; width: 100%; margin: 0px 32px 0px 32px;}
-
-#container{border: solid green 4px; display: flex; align-items: center; justify-content: space-around;}
 
 .bouton_barre:hover, a:focus {background-color: #525050; color:white;}
 

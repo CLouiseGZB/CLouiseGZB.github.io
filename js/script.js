@@ -33,9 +33,12 @@ function addSoundToElements(selector, hoverSound, clickSound) {
     });
 
     function playSound(soundFile) {
+        // Créez une nouvelle instance de l'objet Audio
         const audio = new Audio();
         audio.preload = 'auto';
         audio.src = soundFile;
+        
+        // Vérifiez si le son est joué avec une promesse
         audio.play().catch(error => {
             console.error('Erreur lors de la lecture du son:', error);
         });
@@ -46,6 +49,29 @@ function addSoundToElements(selector, hoverSound, clickSound) {
 document.addEventListener('DOMContentLoaded', () => {
     addSoundToElements('.item', '/sound/Hidden-Blade-Select.mp3', '/sound/Accept.mp3');
 });
+
+// Pour tester l'interaction utilisateur, ajoutez un bouton
+document.addEventListener('DOMContentLoaded', () => {
+    // Ajouter l'événement de clic au bouton interactif
+    const boite = document.querySelector('.boite');
+    const intro = boite.querySelector('.intro');
+    const image = boite.querySelector('.image')
+    const activationSound = new Audio('/sound/Memory -Sequence-Synchronized.mp3');
+
+    // Ajouter un événement de clic à l'élément .boite
+    boite.addEventListener('click', () => {
+        // Jouer le son d'activation
+        activationSound.play().catch(error => {
+            console.error('Erreur lors de la lecture du son:', error);
+        });
+
+        // Masquer le texte de l'intro après le clic
+        intro.style.display = 'none';
+        image.style.display = 'none';
+    });
+});
+
+
 
 
 // *************************bouton top***********

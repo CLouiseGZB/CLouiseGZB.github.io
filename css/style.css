@@ -160,6 +160,63 @@ h1:nth-child(3) {
 }
 
 /* **************glitch titre fin************* */
+/* ******************pomme d'eden********** */
+.pomme_eden {
+  /* border: solid 1px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 39rem;
+}
+
+.boite {
+  position: relative;
+  width: 200px; /* Ajustez la largeur selon besoin */
+  height: 200px; /* Ajustez la hauteur selon besoin */
+  /* border: solid 1px; */
+  display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.image {
+  width: 8rem;
+  height: 8rem;
+  display: block;
+  /* border: solid 1px; */
+  animation: pulse 1.5s infinite; /* Ajouter l'animation de pulsation */
+  box-shadow: 0 7px 6px #EDD799;
+  border-radius: 100%;
+  
+}
+
+.intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  display:contents ;
+  /* padding-top: 20px; */
+}
+
+@keyframes pulse {
+  0% {
+    transform:  scale(1);
+  }
+  50% {
+    transform:  scale(1.1);
+  }
+  100% {
+    transform:  scale(1);
+  }
+}
+
+/* ******************pomme d'eden fin********** */
 
 /* *************perso à droite**************** */
 #stand {
@@ -438,7 +495,7 @@ h1:nth-child(3) {
 
 
 
-  
+
 
   /* ************bouton retourner en haut************** */
   #scroll_to_top {

@@ -19,7 +19,7 @@ h2Elements.forEach(h2 => observer.observe(h2));
 
 // ****************** sons cureur***********************
 // *********************menu*************************
-function addSoundToElements(selector, hoverSound, clickSound) {
+function addSoundToElements(selector, hoverSound, clickSound) {    
     const elements = document.querySelectorAll(selector);
 
     elements.forEach(element => {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const intro = boite.querySelector('.intro');
     const image = boite.querySelector('.image')
     const activationSound = new Audio('/sound/Memory -Sequence-Synchronized.mp3');
-
+    
     // Ajouter un événement de clic à l'élément .boite
     boite.addEventListener('click', () => {
         // Jouer le son d'activation
@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         image.style.display = 'none';
     });
 });
-
 
 
 
@@ -129,8 +128,3 @@ function addHoverSoundToDivs(containerSelector, soundId) {
 document.addEventListener('DOMContentLoaded', () => {
     addHoverSoundToDivs('.parent', 'projectSound');
 });
-
-
-
-
-

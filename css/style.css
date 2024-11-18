@@ -326,18 +326,12 @@ margin-top: 15%;
 
 /* *****************description*********** */
 .main_menu{
-  /* border: solid 1px; */
-  /* width: 20rem; */
-  /* padding: 1.5rem 2rem; */
   margin-right: 3rem;
-  /* height: 130vh; */
   font-size: 20px;
-  /* line-height: 1.5 */
 }
 
 .description, .info_languages {
   background-color: rgba(255, 255, 255, 0.66666);
-  /* margin: 0.5em 0; */
   padding: 1em;
 }
 
@@ -351,7 +345,7 @@ margin-top: 15%;
   justify-content: center;
 }
 
-.display_H2{
+.display_h2{
   display: flex;
   justify-content: center;
 }
@@ -375,104 +369,70 @@ margin-top: 15%;
 /* ******************projet helix************** */
 .parent {
   /* background-color: rgba(255, 255, 255, 0.66666) !important; */
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-column-gap: 27px;
-  grid-row-gap: 27px;
-  padding: 3rem;
+  display: flex;
+  margin: 3rem;
+  justify-content: space-around;
   /* margin: 0.5em 0; */
   /* padding: 1em; */
   }
-  
+
+  .parent div{
+    width: 25rem;
+    height: 14rem;
+  }
+
+
   .div1 { 
-    grid-area: 1 / 1 / 3 / 3;
+    
     /* border: solid 1px; */
     background:no-repeat center/100% url(../images/Rectangle\ 23.png);
-    height: 13rem;
+    /* height: 13rem; */
+    background-size: cover;
   }
 
   .div2 { 
-    grid-area: 1 / 3 / 3 / 5;
+    
     /* border: solid 1px; */
     background:no-repeat center/100% url(../images/Rectangle\ 24.png); 
+    background-size: cover;
   }
 
   .div3 { 
-    grid-area: 1 / 5 / 3 / 7;
+    
     /* border: solid 1px; */
-    background:no-repeat center/100% url(../images/Rectangle\ 25.png) 
+    background:no-repeat center/100% url(../images/Rectangle\ 25.png);
+    background-size: cover;
+
   }
 
-  .div4 { 
-    grid-area: 3 / 1 / 5 / 3;
-    /* border: solid 1px; */
-    background:no-repeat center/100% url(../images/Rectangle\ 26.png) 
-  }
-
-  .div5 { 
-    grid-area: 3 / 3 / 5 / 5;
-    /* border: solid 1px; */
-    background:no-repeat center/100% url(../images/Rectangle\ 27.png) 
-  }
-
-  .div6 { 
-    grid-area: 3 / 5 / 5 / 7;
-    /* border: solid 1px; */
-    background:no-repeat center/100% url(../images/Rectangle\ 28.png) 
-  }
-
-  .div7 { 
-    grid-area: 5 / 1 / 7 / 3;
-    /* border: solid 1px; */
-    background:no-repeat center/100% url(../images/Rectangle\ 29.png) 
-  }
-
-  .div8 { 
-    grid-area: 5 / 3 / 7 / 5;
-    /* border: solid 1px; */
-    background:no-repeat center/100% url(../images/Rectangle\ 30.png) 
-  }
-
-  .div9 { 
-    grid-area: 5 / 5 / 7 / 7;
-    /* border: solid 1px; */
-    background:no-repeat center/100% url(../images/Rectangle\ 31.png) 
-  }
-
-  .div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9 {
+  .div1, .div2, .div3 {
     position: relative;
     transition: transform 0.5s, filter 0.3s;
     box-shadow: 0 7px 6px rgba(255, 255, 255, 0.66666);
-  }
-  
-  .div1:hover, .div2:hover, .div3:hover, .div4:hover, .div5:hover, .div6:hover, .div7:hover, .div8:hover, .div9:hover {
-    transform: scale(1.1);
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(to left, rgba(255, 255, 255, 0.208), rgba(44, 44, 44, 0.74));
-      opacity: 1;
-      transition: opacity 0.5s ease-in-out;
-      z-index: 1; /* Ajoutez cette règle */
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      opacity: 0.7;
-      transition: opacity 0.5s ease-in-out;
-      z-index: 1; /* Ajoutez cette règle */
-    }
-  }
+    overflow: hidden; /* Empêche le débordement lors de l'agrandissement */
+}
+
+.div1:hover, .div2:hover, .div3:hover {
+    transform: scale(1.1); /* Agrandissement */
+}
+
+.div1::before, .div2::before, .div3::before {
+    content: ""; /* Nécessaire pour afficher le pseudo-élément */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Couvre toute la largeur de l'élément */
+    height: 100%; /* Couvre toute la hauteur de l'élément */
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.36), rgba(6, 6, 6, 0.823));
+    opacity: 0; /* Invisible par défaut */
+    transition: opacity 0.5s ease-in-out; /* Transition fluide */
+    z-index: 1; /* Superpose la couche de gradient */
+}
+
+.div1:hover::before, .div2:hover::before, .div3:hover::before {
+    opacity: 1; /* Rendre visible la couche de gradient au survol */
+}
+
   
   h3 {
     position: relative;
@@ -492,6 +452,7 @@ margin-top: 15%;
   #abstergo{
     display: flex;
     justify-content: flex-end;
+    margin-right: 2rem;
   }
 
   #abstergo img{
@@ -499,6 +460,39 @@ margin-top: 15%;
     margin-right: 1.5rem;
   }
   /* ************logo abstergo fin************** */
+
+  /* ************CV************** */
+  #cv h2{
+    margin-top: 4rem;
+  }
+
+.cv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  padding-bottom: 4rem;
+}
+
+#dwld{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-btn{
+  background-color: #53216A;
+  color: #DDD;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+}
+
+.download-btn:hover{
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
 
 
 
@@ -533,3 +527,13 @@ margin-top: 15%;
     background: linear-gradient(to top, #800000, #FF0000);
   }
   
+
+  /* ************footer************** */
+  footer{
+    border-top: #DDD solid 2px;
+  }
+
+  footer p{
+    padding: 3rem;
+    text-align: center;
+  }

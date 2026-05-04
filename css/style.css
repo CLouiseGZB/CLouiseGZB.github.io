@@ -152,7 +152,7 @@ video {
   right: -22px;
   width: 1px;
   height: 82vh;
-  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,.9), transparent);
 }
 
 .title {
@@ -549,7 +549,7 @@ section {
   height: auto;
   width: min(100% - 2rem, 1040px);
   margin-left: var(--content-left);
-  padding: clamp(4rem, 8vh, 7rem) clamp(1rem, 4vw, 2rem) clamp(3rem, 6vh, 5rem) 0;
+  /* padding: clamp(4rem, 8vh, 7rem) clamp(1rem, 4vw, 2rem) clamp(3rem, 6vh, 5rem) 0; */
   display: grid;
   align-content: center;
   /* scroll-margin-top: 3rem; */
@@ -685,7 +685,7 @@ h2 {
 .project-card,
 .div1,
 .div2,
-.div3 {
+.div3, .div4, .div5, .div6 {
   position: relative;
   height: 245px;
   overflow: hidden;
@@ -697,7 +697,9 @@ h2 {
 .project-card:focus-within,
 .div1:hover,
 .div2:hover,
-.div3:hover {
+.div3:hover,
+.div4:hover,
+.div5:hover, .div6:hover {
   transform: translateY(-5px);
   filter: contrast(1.05);
 }
@@ -705,7 +707,7 @@ h2 {
 .project-card::before,
 .div1::before,
 .div2::before,
-.div3::before {
+.div3::before, .div4::before, .div5::before, .div6::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -718,13 +720,17 @@ h2 {
 .project-card:hover::before,
 .div1:hover::before,
 .div2:hover::before,
-.div3:hover::before {
+.div3:hover::before, .div4:hover::before, .div5:hover::before, .div6:hover::before {
   opacity: .97;
 }
 
-.div1 { background: no-repeat center / cover url('../images/Twini.png'); }
-.div2 { background: no-repeat center / cover url('../images/Greentech.png'); }
-.div3 { background: no-repeat center / cover url('../images/Afternoon.png'); }
+.div1 { background: no-repeat center / cover url('../images/Retrotoon.png'); }
+.div2 { background: no-repeat center / cover url('../images/Twini.png'); }
+.div3 { background: no-repeat center / cover url('../images/Twini-hackathon.png'); }
+.div4 { background: no-repeat center / cover url('../images/Greentech.png');}
+.div5 { background: no-repeat center / cover url('../images/Afternoon.png');}
+.div6 { background: no-repeat center / cover url('../images/Unilook.png');}
+
 
 h3,
 .project-card h3 {

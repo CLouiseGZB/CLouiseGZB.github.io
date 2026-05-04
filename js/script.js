@@ -128,3 +128,95 @@ function addHoverSoundToDivs(containerSelector, soundId) {
 document.addEventListener('DOMContentLoaded', () => {
     addHoverSoundToDivs('.parent', 'projectSound');
 });
+
+// ********* menu dynamique ************
+const sections = document.querySelectorAll("section, .hero");
+const navItems = document.querySelectorAll(".game-menu .item");
+const progressBar = document.querySelector(".progress span");
+const syncText = document.querySelector("#syncText");
+
+let currentSyncValue = 20;
+let syncAnimation = null;
+
+const progressValues = {
+  top: "20%",
+  lore: "40%",
+  skills: "60%",
+  projects: "80%",
+  cv: "100%"
+};
+
+function setActive(id) {
+  navItems.forEach(item => {
+    const link = item.querySelector("a");
+    const isActive = link.getAttribute("href") === `#${id}`;
+
+    item.classList.toggle("active", isActive);
+  });
+
+  const value = progressValues[id] || "20%";
+
+  if (progressBar) {
+    progressBar.style.width = value;
+  }
+
+  if (syncText) {
+  const targetValue = parseInt(value); // 40, 60, etc.
+
+  clearInterval(syncAnimation);
+
+  // glitch
+  syncText.classList.remove("sync-glitch");
+  void syncText.offsetWidth;
+  syncText.classList.add("sync-glitch");
+
+  syncAnimation = setInterval(() => {
+    if (currentSyncValue === targetValue) {
+      clearInterval(syncAnimation);
+      return;
+    }
+
+    if (currentSyncValue < targetValue) {
+      currentSyncValue++;
+    } else {
+      currentSyncValue--;
+    }
+
+    syncText.textContent = `Synchronisation : ${currentSyncValue}%`;
+  }, 20);
+}
+}
+
+navItems.forEach(item => {
+  const link = item.querySelector("a");
+
+  link.addEventListener("click", () => {
+    const id = link.getAttribute("href").replace("#", "");
+    setActive(id);
+  });
+});
+
+window.addEventListener("scroll", () => {
+  let current = "top";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 180;
+    const sectionHeight = section.offsetHeight;
+
+    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+      current = section.id;
+    }
+  });
+
+  setActive(current);
+});
+
+setActive("top");
+
+// clique sur les liens du menu
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
+  });
+});

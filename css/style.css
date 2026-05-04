@@ -152,7 +152,7 @@ video {
   right: -22px;
   width: 1px;
   height: 82vh;
-  background: linear-gradient(to bottom, transparent, rgba(0,0,0,.3), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 .title {
@@ -264,6 +264,7 @@ video {
   height: 100%;
   background: var(--violet);
   box-shadow: 0 0 16px rgba(83,33,106,.55);
+  transition: width .35s ease;
 }
 
 .mobile-menu-btn {
@@ -300,7 +301,7 @@ h1 {
   inset: 0 auto auto 0;
   width: 100%;
   margin: 0;
-  color: rgba(0, 0, 0, 0.64);
+  color: rgba(0, 0, 0, 0.72);
   font-family: 'Trajan Pro', serif !important;
   font-size: clamp(3.2rem, 5.9vw, 6rem);
   font-weight: 300;
@@ -308,34 +309,134 @@ h1 {
   letter-spacing: clamp(.16rem, .68vw, .68rem);
   text-align: left;
   text-transform: uppercase;
-  animation: glitch1 9s infinite;
+  animation: animusGlitchMain 5s infinite;
 }
 
 h1:nth-child(2) {
-  color: rgba(64,224,208,.2);
-  animation: glitch2 9s infinite;
-  animation-delay: .2s;
+  color: rgba(64,224,208,.34);
+  animation: animusGlitchCyan 5s infinite;
+  animation-delay: .08s;
 }
 
 h1:nth-child(3) {
-  color: rgba(255,0,0,.2);
-  animation: glitch3 9s infinite;
-  animation-delay: .2s;
+  color: rgba(255,0,0,.3);
+  animation: animusGlitchRed 5s infinite;
+  animation-delay: .08s;
 }
 
-@keyframes glitch1 {
-  0%, 2%, 8%, 100% { transform: translate(0,0); opacity: 1; }
-  2.1%, 3%, 3.1%, 5%, 5.1%, 7.9% { transform: skew(.5deg,.9deg); opacity: .75; }
+@keyframes animusGlitchMain {
+  0%, 4%, 8%, 42%, 46%, 100% {
+    transform: translate(0,0);
+    opacity: 1;
+    text-shadow: none;
+  }
+
+  4.5% {
+    transform: translate(-2px, 1px) skew(.4deg);
+    opacity: .82;
+    text-shadow: 2px 0 rgba(64,224,208,.45), -2px 0 rgba(255,0,0,.38);
+  }
+
+  5.2% {
+    transform: translate(2px, -1px) skew(-.4deg);
+    opacity: .95;
+    text-shadow: -2px 0 rgba(64,224,208,.45), 2px 0 rgba(255,0,0,.38);
+  }
+
+  43% {
+    transform: translate(1px, -1px);
+    opacity: .9;
+  }
+
+  44% {
+    transform: translate(-1px, 1px);
+    opacity: 1;
+  }
 }
 
-@keyframes glitch2 {
-  0%, 2%, 8%, 100% { transform: translate(0,0); opacity: .22; }
-  2.1%, 3%, 3.1%, 5%, 5.1%, 7.9% { transform: translate(-6px,-3px); opacity: .42; }
+@keyframes animusGlitchCyan {
+  0%, 4%, 8%, 42%, 46%, 100% {
+    transform: translate(0,0);
+    opacity: .2;
+  }
+
+  4.5% {
+    transform: translate(-8px, -2px);
+    opacity: .55;
+  }
+
+  5.2% {
+    transform: translate(5px, 2px);
+    opacity: .35;
+  }
+
+  43% {
+    transform: translate(-4px, 1px);
+    opacity: .42;
+  }
+
+  44% {
+    transform: translate(3px, -1px);
+    opacity: .24;
+  }
 }
 
-@keyframes glitch3 {
-  0%, 2%, 8%, 100% { transform: translate(0,0); opacity: .22; }
-  2.1%, 3%, 3.1%, 5%, 5.1%, 7.9% { transform: translate(6px,3px); opacity: .42; }
+@keyframes animusGlitchRed {
+  0%, 4%, 8%, 42%, 46%, 100% {
+    transform: translate(0,0);
+    opacity: .18;
+  }
+
+  4.5% {
+    transform: translate(8px, 2px);
+    opacity: .5;
+  }
+
+  5.2% {
+    transform: translate(-5px, -2px);
+    opacity: .32;
+  }
+
+  43% {
+    transform: translate(4px, -1px);
+    opacity: .38;
+  }
+
+  44% {
+    transform: translate(-3px, 1px);
+    opacity: .22;
+  }
+}
+
+/* glitch barre de synchronisation */
+.sync-glitch {
+  animation: syncGlitch .35s ease;
+}
+
+@keyframes syncGlitch {
+  0% {
+    transform: translate(0);
+    opacity: 1;
+    text-shadow: none;
+  }
+
+  20% {
+    transform: translate(-2px, 1px);
+    opacity: .75;
+    text-shadow: 2px 0 rgba(64,224,208,.5), -2px 0 rgba(255,0,0,.45);
+  }
+
+  40% {
+    transform: translate(2px, -1px);
+    opacity: .9;
+    text-shadow: -2px 0 rgba(64,224,208,.5), 2px 0 rgba(255,0,0,.45);
+  }
+
+  100% {
+    transform: translate(0);
+    opacity: 1;
+    text-shadow: none;
+  }
 }
 
 .hero-card {

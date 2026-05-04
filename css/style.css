@@ -549,7 +549,7 @@ section {
   height: auto;
   width: min(100% - 2rem, 1040px);
   margin-left: var(--content-left);
-  /* padding: clamp(4rem, 8vh, 7rem) clamp(1rem, 4vw, 2rem) clamp(3rem, 6vh, 5rem) 0; */
+  padding: clamp(4rem, 8vh, 7rem) clamp(1rem, 4vw, 2rem) clamp(3rem, 6vh, 5rem) 0;
   display: grid;
   align-content: center;
   /* scroll-margin-top: 3rem; */
@@ -945,21 +945,37 @@ footer p {
     transform: none;
   }
 
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 5rem 1rem 2rem;
+    min-height: 100vh;
+  }
+
   .hero-text {
     position: relative;
-    left: auto;
-    top: auto;
-    width: min(100%, 700px);
-    padding: 6.8rem 1rem 2rem;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: none;
   }
 
   .character-panel,
   #stand {
     position: relative;
-    right: auto;
-    height: auto;
-    padding-bottom: 2rem;
-    justify-content: flex-end;
+    grid-column: 2;
+    grid-row: 1;
+    height: min(60vh, 420px);
+    align-self: end;
+  }
+
+  .character-panel img,
+  #stand img {
+    height: 100%;
+    width: auto;
   }
 
   .character-panel::before,
@@ -967,10 +983,12 @@ footer p {
     display: none;
   }
 
-  .character-panel img,
-  #stand img {
-    height: auto;
-    width: min(58vw, 310px);
+  .boite {
+    grid-column: 1 / 3; /* 👈 toute la largeur */
+    grid-row: 2;
+
+    width: 100%;
+    justify-content: center;
   }
 
   section,
@@ -1065,6 +1083,98 @@ section {
   #scroll_to_top {
     right: 1rem;
     bottom: 1rem;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 105px;
+    gap: .5rem;
+    padding: 4.5rem .75rem 1.5rem;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 120px;
+    grid-template-rows: auto auto auto;
+    align-content: center;
+    align-items: center;
+    gap: 1rem .7rem;
+    padding: 4.5rem .75rem 2rem;
+    overflow: hidden;
+  }
+
+  .hero-text {
+    display: contents;
+    position: static;
+    width: auto;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 13vw, 3.2rem);
+    letter-spacing: .1rem;
+    line-height: .95;
+    position: absolute;
+    inset: auto;
+    text-align: center;
+  }
+
+  #container {
+    position: absolute;
+    top: 6rem; /* ajuste selon ton menu */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    height: 7rem;
+  }
+
+  .hero-card {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    width: 100%;
+    font-size: .86rem;
+    line-height: 1.55;
+    padding: .8rem .85rem;
+  }
+
+  .character-panel,
+  #stand {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    height: 38vh;
+    align-self: end;
+    justify-self: center;
+    z-index: 4;
+  }
+
+  .character-panel::before,
+  #stand::before {
+    display: none;
+  }
+
+  .character-panel img,
+  #stand img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .boite {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    width: 100%;
+    justify-content: center;
+    min-height: 3rem;
+    margin-top: 0.3rem;
+  }
+
+  .intro {
+    font-size: .78rem;
   }
 }
 

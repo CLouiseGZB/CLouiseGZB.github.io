@@ -4,208 +4,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio-Louisiane-Cloison</title>
+    <meta name="description" content="Portfolio de Louisiane Cloison, conceptrice développeuse d'applications, dans un univers inspiré du menu d'Assassin's Creed II.">
+    <title>Portfolio — Louisiane Cloison</title>
     <link rel="icon" type="image/png" sizes="16x16" href="/images/Designer.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <header>
-        <audio id="hoverSound" src="/sound/Hidden-Blade-Select.mp3" preload="auto"></audio>
-        <audio id="onClickSound" src="/sound/Accept.mp3" preload="auto"></audio>
-        <audio id="topSound" src="/sound/Respawn.mp3" preload="auto"></audio>
-        <audio id="cvSound" src="/sound/Loot-Steal.mp3" preload="auto"></audio>
-        <audio id="projectSound" src="/sound/Lock On.mp3" preload="auto"></audio>
+    <a class="skip-link" href="#main">Aller au contenu</a>
 
-        <!-- Vidéo de fond -->
-        <video autoplay muted loop id="myVideo">
-            <source src="/images/Animus2.4.mp4" type="video/mp4">
-        </video>
+    <audio id="hoverSound" src="/sound/Hidden-Blade-Select.mp3" preload="auto"></audio>
+    <audio id="onClickSound" src="/sound/Accept.mp3" preload="auto"></audio>
+    <audio id="topSound" src="/sound/Respawn.mp3" preload="auto"></audio>
+    <audio id="cvSound" src="/sound/Loot-Steal.mp3" preload="auto"></audio>
+    <audio id="projectSound" src="/sound/Lock On.mp3" preload="auto"></audio>
+    <audio id="memorySound" src="/sound/Memory -Sequence-Synchronized.mp3" preload="auto"></audio>
 
-        <!-- Contenu au-dessus de la vidéo -->
-        <div class="container clearfix">
-            <!-- Menu principal -->
-            <div id="menu">
-                <div class="title">Menu principal</div>
+    <video autoplay muted loop playsinline id="myVideo" aria-hidden="true">
+        <source src="/images/Animus2.4.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo HTML5.
+    </video>
+
+    <button class="mobile-menu-btn" type="button" aria-controls="menu" aria-expanded="false">
+        Menu principal
+    </button>
+
+    <div class="game-shell">
+        <aside class="game-menu" id="menu" aria-label="Menu principal du portfolio">
+            <div class="title">Menu principal</div>
+            <p class="menu-subtitle">Sélection de mémoire</p>
+
+            <nav aria-label="Navigation principale">
                 <ul class="items">
-                    <li class="item"><a href="#lore">Scénario</a></li>
-                    <li class="item"><a href="#skills">Aptitudes</a></li>
-                    <li class="item"><a href="#projects">Projet Helix</a></li>
-                    <li class="item"><a href="#cv">CV</a></li>
+                    <li class="item active">
+                        <a href="#top">Accueil <span>01</span></a>
+                    </li>
+                    <li class="item">
+                        <a href="#lore">Scénario <span>02</span></a>
+                    </li>
+                    <li class="item">
+                        <a href="#skills">Aptitudes <span>03</span></a>
+                    </li>
+                    <li class="item">
+                        <a href="#projects">Projet Helix <span>04</span></a>
+                    </li>
+                    <li class="item">
+                        <a href="#cv">CV <span>05</span></a>
+                    </li>
                 </ul>
+            </nav>
+
+            <div class="menu-status" aria-label="Synchronisation du profil : 72 pour cent">
+                <p id="syncText">Synchronisation : 20%</p>
+                <div class="progress" aria-hidden="true"><span></span></div>
             </div>
+        </aside>
 
-            <!-- Texte de bienvenue -->
-            <div class="pomme_eden">
-                <div id="container">
-                    <h1>Bienvenue GuestX</h1>
-                    <h1>Bienvenue GuestX</h1>
-                    <h1>Bienvenue GuestX</h1>
-                </div>
-
-                <div class="boite">
-                    <img src="/images/ACR_Pomme_d3F2-removebg-preview.png" alt="Pomme d'Eden Assassin's Creed"
-                        class="image">
-                    <div class="intro">Utiliser la pomme</div>
-                </div>
-            </div>
-
-            <!-- Image -->
-            <div id="stand">
-                <img src="/images/AC_plein_pieds.png" alt="Personnage debout">
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="lore">
-            <article id="main_menu">
-                <img src="/images/AC_profile.jpeg" alt="Profil">
-            </article>
-
-            <article class="main_menu">
-                <h2 class="animated-h2">
-                    Scénario
-                </h2>
-                <div class="description">
-                    <p>
-                        Louisiane est une jeune femme dynamique et polyvalente, passionnée par les cultures asiatiques,
-                        particulièrement la coréenne et la japonaise. Toujours à la pointe de la mode, elle mélange avec
-                        aisance des éléments traditionnels et contemporains pour créer des looks uniques. Formée aux
-                        métiers de la mode et du vêtement, elle est une créatrice talentueuse, souvent vue en train de
-                        confectionner des vêtements et des accessoires distinctifs qui enchantent son entourage.
-                        <br><br>
-                        Grâce à sa formation et à son talent inné, elle à un sens de créativité et d'imagination
-                        illimité. Ses connaissances approfondies en informatique et en électronique lui permettent de
-                        résoudre des énigmes technologiques et d'améliorer son équipement. En tant que joueuse de jeux
-                        vidéo, Louisiane sait jongler entre un style de jeu casual et try-hard, ce qui la rend adaptable
-                        à diverses situations de combat et de stratégie. Adoratrice de musique coréenne, de rap US et de
-                        R&B, Louisiane utilise la musique pour se motiver et motiver ses alliés, augmentant
-                        temporairement leurs compétences en combat.
-                        <br><br>
-                        Fan de manga, elle s'inspire souvent des personnages et des histoires qu'elle lit pour ses
-                        créations et ses stratégies de jeu. En tant que développeuse web, Louisiane utilise ses
-                        compétences pour créer des sites et des applications, aidant son équipe avec des interfaces
-                        utilisateur innovantes et des solutions techniques.
-                        <br><br>
-                        Avec un style inimitable et un esprit unique, Louisiane est un atout précieux dans n'importe
-                        quelle équipe. Que ce soit en hackant des systèmes, en confectionnant des équipements
-                        personnalisés ou en inspirant ses alliés avec de la musique, elle apporte une touche unique à
-                        toutes ses aventures. Toujours prête à relever un défi, elle combine passion, compétence et
-                        détermination pour atteindre ses objectifs.
-                    </p>
-                </div>
-            </article>
-        </section>
-
-        <section id="skills">
-            <div>
-                <div class="display_h2">
-                    <h2 class="animated-h2">
-                        Aptitudes
-                    </h2>
-                </div>
-
-                <div class="info_languages">
-                    <img src="/images/logos_html-5.png" alt="HTML5">
-                    <img src="/images/logos_css-3.png" alt="CSS3">
-                    <img src="/images/vscode-icons_file-type-js-official.png" alt="JavaScript">
-                    <img src="/images/devicon_react-wordmark.png" alt="React">
-                    <img src="/images/catppuccin_php.png" alt="PHP">
-                    <img src="/images/vscode-icons_file-type-light-symfony.png" alt="Symfony">
-                    <img src="/images/logos_mysql.png" alt="MySQL">
-                    <img src="/images/devicon_java.png" alt="Java">
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="display_h2">
-                <h2 class="animated-h2">
-                    Projet Helix
-                </h2>
-            </div>
-
-            <div class="parent">
-                <a href="https://unilook.netlify.app/" id="unilook">
-                    <div class="div1">
-                        <h3>
-                            Unilook
-                        </h3>
+        <main class="content" id="main">
+            <header class="hero" id="top" aria-labelledby="hero-title">
+                <div class="hero-text">
+                    <div id="container" aria-label="Bienvenue GuestX">
+                        <h1 id="hero-title">Bienvenue GuestX</h1>
+                        <h1 aria-hidden="true">Bienvenue GuestX</h1>
+                        <h1 aria-hidden="true">Bienvenue GuestX</h1>
                     </div>
-                </a>
 
-                
-
-                <a href="https://greentech-greenwashing-ou-solution.netlify.app/" id="greentech">
-                    <div class="div2">
-                        <h3>
-                            Greentech
-                        </h3>
+                    <div class="hero-card">
+                        <p>
+                            <strong>Profil synchronisé :</strong> Louisiane Cloison, conceptrice développeuse
+                            d'applications. Un univers créatif entre développement web, mode, jeux vidéo, mangas et
+                            cultures coréenne et japonaise.
+                        </p>
                     </div>
-                </a>
 
-                <a href="https://afternoonbritishtea.netlify.app/" id="tea">
-                    <div class="div3">
-                        <h3>
-                            Tea time
-                        </h3>
-                    </div>
-                </a>
-
-            </div>
-
-            <div id="abstergo">
-                <div>
-                    <p>Developed by LOUISIANE</p>
-                    <p>Powered by ANIMUS</p>
-                </div>
-                <img src="/images/AbstergoGIF.gif" alt="Abstergo GIF">
-            </div>
-        </section>
-
-        <section id="cv">
-            
-                <div class="display_h2">
-                    <h2 class="animated-h2">
-                        CV
-                    </h2>
+                    <button class="boite" type="button" aria-label="Utiliser la pomme d'Eden">
+                        <img src="/images/ACR_Pomme_d3F2-removebg-preview.png" alt="" class="image" aria-hidden="true">
+                        <span class="intro">Utiliser la pomme</span>
+                    </button>
                 </div>
 
+                <div class="character-panel" id="stand" aria-hidden="true">
+                    <img src="/images/AC_plein_pieds.png" alt="">
+                </div>
+            </header>
 
-                <div class="cv">
+            <section id="lore" aria-labelledby="lore-title">
+                <div class="section-head">
+                    <h2 class="animated-h2" id="lore-title">Scénario</h2>
+                    <span class="section-code">Mémoire 02</span>
+                </div>
+
+                <div class="section-content">
+                    <article id="main_menu" class="profile-frame">
+                        <img src="/images/AC_profile.jpeg" alt="Portrait de Louisiane Cloison">
+                    </article>
+
+                    <article class="main_menu description">
+                        <p>
+                            Louisiane est une créative polyvalente, passionnée par les cultures asiatiques,
+                            particulièrement la coréenne et la japonaise. Son univers mélange inspirations
+                            traditionnelles, esthétique contemporaine et interfaces immersives.
+                        </p>
+
+                        <p>
+                            Formée aux métiers de la mode et du vêtement, elle possède un sens visuel affirmé.
+                            Son parcours en développement lui permet de transformer ses idées en expériences web
+                            structurées, accessibles et engageantes.
+                        </p>
+
+                        <p>
+                            Jeux vidéo, mangas, K-pop, rap US et R&amp;B nourrissent son imaginaire. Elle conçoit
+                            des projets numériques qui racontent une histoire tout en restant utiles, lisibles et
+                            faciles à parcourir.
+                        </p>
+
+                        <p>
+                            Avec un style inimitable et un esprit unique, Louisiane combine passion, compétence et
+                            détermination pour atteindre ses objectifs.
+                        </p>
+                    </article>
+                    <span class="intro sync-trigger">Synchroniser mémoire</span>                </div>
+            </section>
+
+            <section id="skills" aria-labelledby="skills-title">
+                <div class="section-head">
+                    <h2 class="animated-h2" id="skills-title">Aptitudes</h2>
+                    <span class="section-code">Mémoire 03</span>
+                </div>
+
+                <div class="info_languages" aria-label="Compétences techniques">
+                    <div class="skill-box">
+                        <img src="/images/logos_html-5.png" alt="HTML5">
+                    </div>
+                    <div class="skill-box">
+                        <img src="/images/logos_css-3.png" alt="CSS3">
+                    </div>
+                    <div class="skill-box">
+                        <img src="/images/vscode-icons_file-type-js-official.png" alt="JavaScript">
+                    </div>
+                    <div class="skill-box">
+                        <img src="/images/Angular_gradient_logo.png" alt="React">
+                    </div>
+                    <div class="skill-box">
+                        <img src="/images/devicon_java.png" alt="Java">
+                    </div>
+                    <div class="skill-box">
+                        <img src="/images/spring-icon.png" alt="PHP">
+                    </div>
+                    <div class="skill-box">
+                        <img src="/images/postgresql-icon.png" alt="Symfony">
+                    </div>
+                    <div class="skill-box">
+                        <img src="/images/figma-icon.png" alt="MySQL">
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section id="projects" aria-labelledby="projects-title">
+                <div class="section-head">
+                    <h2 class="animated-h2" id="projects-title">Projet Helix</h2>
+                    <span class="section-code">Mémoire 04</span>
+                </div>
+
+                <div class="parent" aria-label="Liste des projets">
+                    <a href="https://youtu.be/4S2XFKJaAIg?si=bLtRMgXmXQ-D4rRg" id="retrotoon" target="_blank" rel="noreferrer" aria-label="Voir le projet Retrotoon, ouvre un nouvel onglet">
+                        <article class="project-card div1">
+                            <h3>Retrotoon</h3>
+                            <p class="project-info">Site de streaming de dessins animés rétro.</p>
+                        </article>
+                    </a>
+                    <a href="https://twini-recyclage.fr/" id="twini" target="_blank" rel="noreferrer" aria-label="Voir le projet Twini, ouvre un nouvel onglet">
+                        <article class="project-card div2">
+                            <h3>Twini Officiel</h3>
+                            <p class="project-info">Site web de la start-up Twini.</p>
+                        </article>
+                    </a>
+                    <a href="https://youtu.be/Qt-BIqDn9CY?si=qFsCctQM-D48MXPI" id="twiniHack" target="_blank" rel="noreferrer" aria-label="Voir le projet Twini Hackathon, ouvre un nouvel onglet">
+                        <article class="project-card div3">
+                            <h3>Twini Hackaton</h3>
+                            <p class="project-info">Projet web fait à l'occasion d'un hackathon pour la star-up de recyclage Twini.</p>
+                        </article>
+                    </a>
+
+                    <a href="https://greentech-greenwashing-ou-solution.netlify.app/" id="greentech" target="_blank" rel="noreferrer" aria-label="Voir le projet Greentech, ouvre un nouvel onglet">
+                        <article class="project-card div4">
+                            <h3>Greentech</h3>
+                            <p class="project-info">Site de sensibilisation autour du greentech et des enjeux environnementaux.</p>
+                        </article>
+                    </a>
+
+                    <a href="https://afternoonbritishtea.netlify.app/" id="tea" target="_blank" rel="noreferrer" aria-label="Voir le projet Tea time, ouvre un nouvel onglet">
+                        <article class="project-card div5">
+                            <h3>Tea time</h3>
+                            <p class="project-info">Interface thématique autour d'un univers doux, britannique et immersif.</p>
+                        </article>
+                    </a>
+
+                    <a href="https://unilook.netlify.app/" id="unilook" target="_blank" rel="noreferrer" aria-label="Voir le projet Unilook, ouvre un nouvel onglet">
+                        <article class="project-card div6">
+                            <h3>Unilook</h3>
+                            <p class="project-info">Projet web centré sur l'identité visuelle et l'expérience utilisateur.</p>
+                        </article>
+                    </a>
+                </div>
+
+                <div id="abstergo" aria-label="Signature du portfolio">
                     <div>
-                        <img src="images/Group_2.png" alt="">
+                        <p>Developed by Louisiane</p>
+                        <p>Powered by Animus</p>
+                    </div>
+                    <img src="/images/AbstergoGIF.gif" alt="Logo Abstergo animé">
+                </div>
+            </section>
+
+            <section id="cv" aria-labelledby="cv-title">
+                <div class="section-head">
+                    <h2 class="animated-h2" id="cv-title">CV</h2>
+                    <span class="section-code">Mémoire 05</span>
+                </div>
+
+                <div class="cv-panel cv">
+                    <div aria-hidden="true">
+                        <img src="/images/Group_2.png" alt="">
                     </div>
 
                     <div id="dwld">
-                        <img src="images/Designer.png" alt="" width="300" height="300">
-                        
-                        <a href="/images/CV_Louisiane_Cloison_Conceptrice_Developpeuse_Dapplication.pdf" download="CV_Louisiane_Cloison_Conceptrice_Developpeuse_Dapplication.pdf" class="download-btn item">ENTREZ DANS L'ANIMUS</a>
+                        <img src="/images/Designer.png" alt="Icône Animus" width="300" height="300">
+                        <a href="/images/CV_Louisiane_Cloison_Conceptrice_Developpeuse_Dapplication.pdf" download="CV_Louisiane_Cloison_Conceptrice_Developpeuse_Dapplication.pdf" class="download-btn">
+                            Entrez dans l'Animus
+                        </a>
                     </div>
 
-                <div>
-                    <img src="images/Group_1.png" alt="">
-
+                    <div aria-hidden="true">
+                        <img src="/images/Group_1.png" alt="">
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
+    </div>
 
-        <div class="top">
-            <a href="#top" id="scroll_to_top">
-                B
-            </a>
-        </div>
-    </main>
+    <div class="top">
+        <a href="#top" id="scroll_to_top" aria-label="Retour en haut">↑</a>
+    </div>
 
     <footer>
-        <p>
-            © Cloison Louisiane - 2024
-        </p>
+        <p>© Cloison Louisiane — 2026</p>
     </footer>
 
     <script src="/js/script.js"></script>
-
 </body>
 
 </html>

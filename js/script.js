@@ -1,130 +1,234 @@
-// ***************** animation h2************************
+/* ============================================================
+   script.js — version corrigée complète
+   Corrections :
+   - ReferenceError "navLinks" → supprimé, on utilise navItems
+   - Menu mobile : toggle is-open + overlay + fermeture au clic lien
+   - aria-expanded mis à jour
+   - Overlay backdrop ajouté dynamiquement
+   ============================================================ */
+
+// ===== ANIMATION H2 =====
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animated-h2');
-
-        } else {
-            // Optionnel : Retirer la classe si l'élément sort du viewport
-            entry.target.classList.remove('animated-h2');
-        }
-    });
-}, {
-    threshold: 0.5 // L'élément doit être visible à 50% pour déclencher l'animation
-});
-
-const h2Elements = document.querySelectorAll('h2');
-h2Elements.forEach(h2 => observer.observe(h2));
-// ***************** animation h2 fin************************
-
-// ****************** sons cureur***********************
-// *********************menu*************************
-function addSoundToElements(selector, hoverSound, clickSound) {    
-    const elements = document.querySelectorAll(selector);
-
-    elements.forEach(element => {
-        element.addEventListener('mouseover', () => {
-            playSound(hoverSound);
-        });
-
-        element.addEventListener('click', () => {
-            playSound(clickSound);
-        });
-    });
-
-    function playSound(soundFile) {
-        // Créez une nouvelle instance de l'objet Audio
-        const audio = new Audio();
-        audio.preload = 'auto';
-        audio.src = soundFile;
-        
-        // Vérifiez si le son est joué avec une promesse
-        audio.play().catch(error => {
-            console.error('Erreur lors de la lecture du son:', error);
-        });
-    }
-}
-
-// Utilisation de la fonction après que le DOM est chargé
-document.addEventListener('DOMContentLoaded', () => {
-    addSoundToElements('.item', '/sound/Hidden-Blade-Select.mp3', '/sound/Accept.mp3');
-});
-
-// Pour tester l'interaction utilisateur, ajoutez un bouton
-document.addEventListener('DOMContentLoaded', () => {
-    // Ajouter l'événement de clic au bouton interactif
-    const boite = document.querySelector('.boite');
-    const intro = boite.querySelector('.intro');
-    const image = boite.querySelector('.image')
-    const activationSound = new Audio('/sound/Memory -Sequence-Synchronized.mp3');
-    
-    // Ajouter un événement de clic à l'élément .boite
-    boite.addEventListener('click', () => {
-        // Jouer le son d'activation
-        activationSound.play().catch(error => {
-            console.error('Erreur lors de la lecture du son:', error);
-        });
-
-        // Masquer le texte de l'intro après le clic
-        intro.style.display = 'none';
-        image.style.display = 'none';
-    });
-});
-
-
-
-// *************************bouton top***********
-function addClickSoundToElement(elementSelector, soundId) {
-    const element = document.querySelector(elementSelector);
-    const sound = document.getElementById(soundId);
-
-    if (element && sound) {
-        element.addEventListener('click', () => {
-            playSound(sound);
-        });
-
-        function playSound(audioElement) {
-            audioElement.currentTime = 0; // Rewind to start for immediate replay
-            audioElement.play().catch(error => {
-                console.error('Erreur lors de la lecture du son:', error);
-            });
-        }
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animated-h2');
     } else {
-        console.warn(`L'élément avec le sélecteur ${elementSelector} ou le son avec l'ID ${soundId} n'a pas été trouvé.`);
+      entry.target.classList.remove('animated-h2');
     }
-}
+  });
+}, { threshold: 0.5 });
 
-// Utilisation :
+document.querySelectorAll('h2').forEach(h2 => observer.observe(h2));
+
+// ===== MENU MOBILE =====
 document.addEventListener('DOMContentLoaded', () => {
-    addClickSoundToElement('#scroll_to_top', 'topSound');
+  const menuBtn  = document.querySelector('.mobile-menu-btn');
+  const menu     = document.getElementById('menu');
+
+  // Crée l'overlay backdrop et l'injecte dans le body
+  const overlay  = document.createElement('div');
+  overlay.className = 'menu-overlay';
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(overlay);
+
+  function openMenu() {
+    menu.classList.add('is-open');
+    overlay.classList.add('is-open');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden'; // bloque le scroll derrière
+  }
+
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  menuBtn.addEventListener('click', () => {
+    const isOpen = menu.classList.contains('is-open');
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Fermeture au clic sur l'overlay
+  overlay.addEventListener('click', closeMenu);
+
+  // Fermeture au clic sur un lien du menu
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Fermeture à la touche Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+      closeMenu();
+      menuBtn.focus();
+    }
+  });
+
+  // Fermeture si l'écran devient large (retour desktop)
+  window.matchMedia('(min-width: 1051px)').addEventListener('change', e => {
+    if (e.matches) closeMenu();
+  });
 });
-// *************************bouton top fin***********
-// *************************bouton hover projet***********
-function addHoverSoundToDivs(containerSelector, soundId) {
-    const container = document.querySelector(containerSelector);
-    const sound = document.getElementById(soundId);
 
-    if (container && sound) {
-        const divs = container.querySelectorAll('div');
+// ===== SONS MENU =====
+function addSoundToElements(selector, hoverSoundSrc, clickSoundSrc) {
+  const elements = document.querySelectorAll(selector);
 
-        divs.forEach(div => {
-            div.addEventListener('mouseover', () => {
-                playSound(sound);
-            });
-        });
+  function playSound(src) {
+    const audio = new Audio(src);
+    audio.preload = 'auto';
+    audio.play().catch(() => {});
+  }
 
-        function playSound(audioElement) {
-            audioElement.currentTime = 0; // Rewind to start for immediate replay
-            audioElement.play().catch(error => {
-                console.error('Erreur lors de la lecture du son:', error);
-            });
-        }
-    } else {
-        console.warn(`Le conteneur avec le sélecteur ${containerSelector} ou le son avec l'ID ${soundId} n'a pas été trouvé.`);
-    }
+  elements.forEach(el => {
+    el.addEventListener('mouseover', () => playSound(hoverSoundSrc));
+    el.addEventListener('click',     () => playSound(clickSoundSrc));
+  });
 }
 
-// Utilisation :
 document.addEventListener('DOMContentLoaded', () => {
-    addHoverSoundToDivs('.parent', 'projectSound');
+  addSoundToElements('.item', '/sound/Hidden-Blade-Select.mp3', '/sound/Accept.mp3');
+});
+
+// ===== SON POMME D'EDEN =====
+document.addEventListener('DOMContentLoaded', () => {
+  const boite = document.querySelector('.boite');
+  if (!boite) return;
+
+  const activationSound = new Audio('/sound/Memory -Sequence-Synchronized.mp3');
+
+  boite.addEventListener('click', () => {
+  activationSound.play().catch(() => {});
+
+  boite.classList.add('is-syncing');
+
+  boite.innerHTML = `
+    <div class="blueprint" aria-hidden="true">
+      ${Array.from({ length: 20 }, () => `
+        <div class="bar">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+        </div>
+      `).join('')}
+    </div>
+    <span class="sync-text">Synchronisation en cours...</span>
+  `;
+
+}, { once: true });
+});
+
+// ===== SON RETOUR EN HAUT =====
+document.addEventListener('DOMContentLoaded', () => {
+  const btn   = document.querySelector('#scroll_to_top');
+  const sound = document.getElementById('topSound');
+  if (!btn || !sound) return;
+
+  btn.addEventListener('click', () => {
+    sound.currentTime = 0;
+    sound.play().catch(() => {});
+  });
+});
+
+// ===== SON HOVER PROJETS =====
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.parent');
+  const sound     = document.getElementById('projectSound');
+  if (!container || !sound) return;
+
+  container.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mouseover', () => {
+      sound.currentTime = 0;
+      sound.play().catch(() => {});
+    });
+  });
+});
+
+// ===== MENU DYNAMIQUE (progression + active) =====
+const sections     = document.querySelectorAll('section, .hero');
+const navItems     = document.querySelectorAll('.game-menu .item');
+const progressBar  = document.querySelector('.progress span');
+const syncText     = document.querySelector('#syncText');
+
+let currentSyncValue = 20;
+let syncAnimation    = null;
+
+const progressValues = {
+  top:      '20%',
+  lore:     '40%',
+  skills:   '60%',
+  projects: '80%',
+  cv:       '100%'
+};
+
+function setActive(id) {
+  navItems.forEach(item => {
+    const link = item.querySelector('a');
+    item.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+  });
+
+  const value = progressValues[id] || '20%';
+  if (progressBar) progressBar.style.width = value;
+
+  if (syncText) {
+    const targetValue = parseInt(value);
+
+    clearInterval(syncAnimation);
+    syncText.classList.remove('sync-glitch');
+    void syncText.offsetWidth; // force reflow pour relancer l'animation CSS
+    syncText.classList.add('sync-glitch');
+
+    syncAnimation = setInterval(() => {
+      if (currentSyncValue === targetValue) {
+        clearInterval(syncAnimation);
+        return;
+      }
+      currentSyncValue += currentSyncValue < targetValue ? 1 : -1;
+      syncText.textContent = `Synchronisation : ${currentSyncValue}%`;
+    }, 20);
+  }
+}
+
+// Clic sur un lien de nav
+navItems.forEach(item => {
+  item.querySelector('a').addEventListener('click', () => {
+    const id = item.querySelector('a').getAttribute('href').replace('#', '');
+    setActive(id);
+  });
+});
+
+// Scroll spy
+window.addEventListener('scroll', () => {
+  let current = 'top';
+  sections.forEach(section => {
+    const top    = section.offsetTop - 200;
+    const bottom = top + section.offsetHeight;
+    if (window.scrollY >= top && window.scrollY < bottom) {
+      current = section.id;
+    }
+  });
+  setActive(current);
+}, { passive: true });
+
+setActive('top');
+
+// ===== DESCRIPTION =====
+document.addEventListener('DOMContentLoaded', () => {
+  const memoryBtn = document.querySelector('.sync-trigger');
+  const description = document.querySelector('.main_menu.description');
+
+  if (!memoryBtn || !description) return;
+
+  memoryBtn.addEventListener('click', () => {
+    description.classList.toggle('expanded');
+
+    memoryBtn.classList.remove('sync-glitch');
+    void memoryBtn.offsetWidth;
+    memoryBtn.classList.add('sync-glitch');
+
+    memoryBtn.textContent = description.classList.contains('expanded')
+      ? 'Désynchroniser mémoire'
+      : 'Synchroniser mémoire';
+  });
 });

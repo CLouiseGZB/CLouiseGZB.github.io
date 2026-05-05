@@ -884,12 +884,28 @@ footer p {
   }
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== OVERLAY BACKDROP (menu mobile) ===== */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  background: rgba(0, 0, 0, 0);
+  transition: background .3s ease;
+}
+
+.menu-overlay.is-open {
+  display: block;
+  background: rgba(0, 0, 0, .38);
+}
+
+/* ===== BREAKPOINT TABLETTE ≤ 1050px ===== */
 @media (max-width: 1050px) {
   :root {
-    --content-left: 1rem;
+    --content-left: 0px; /* neutralisé, on gère manuellement */
   }
 
+  /* --- Bouton menu --- */
   .mobile-menu-btn {
     position: fixed;
     top: 1rem;
@@ -897,25 +913,43 @@ footer p {
     z-index: 80;
     display: inline-flex;
     align-items: center;
+    gap: .5rem;
     min-height: 2.8rem;
-    padding: .55rem .85rem;
+    padding: .55rem .9rem;
     color: white;
     background: var(--violet);
-    font-size: .95rem;
+    font-size: .88rem;
     letter-spacing: .07em;
     text-transform: uppercase;
+    border-left: 4px solid rgba(255, 255, 255, .4);
+    transition: opacity .2s ease;
   }
 
+  .mobile-menu-btn::before {
+    content: "☰";
+    font-size: 1rem;
+  }
+
+  .mobile-menu-btn[aria-expanded="true"]::before {
+    content: "✕";
+  }
+
+  /* --- Menu latéral → tiroir mobile --- */
   .game-menu {
-    top: 4.2rem;
-    left: 1rem;
-    width: min(88vw, 340px);
-    padding: 1rem;
-    background: rgba(255,255,255,.9);
-    box-shadow: 0 20px 60px rgba(0,0,0,.16);
-    backdrop-filter: blur(10px);
-    transform: translateX(-118%);
-    transition: transform .3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 60;
+    width: min(80vw, 300px);
+    height: 100dvh;
+    padding: 5rem 1.25rem 2rem;
+    background: rgba(240, 235, 248, .97);
+    backdrop-filter: blur(12px);
+    box-shadow: 4px 0 40px rgba(0, 0, 0, .18);
+    transform: translateX(-105%);
+    transition: transform .32s cubic-bezier(.4, 0, .2, 1);
+    overflow-y: auto;
   }
 
   .game-menu.is-open {
@@ -924,6 +958,10 @@ footer p {
 
   .game-menu::after {
     display: none;
+  }
+
+  .title {
+    font-size: 1.25rem;
   }
 
   .menu-subtitle,
@@ -938,6 +976,10 @@ footer p {
     width: 100%;
   }
 
+  .item {
+    width: 100%;
+  }
+
   .item:hover,
   .item:focus-within,
   .item.active {
@@ -945,211 +987,42 @@ footer p {
     transform: none;
   }
 
+  /* --- Hero --- */
   .hero {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    align-items: center;
-    gap: 1.2rem;
-    padding: 5rem 1rem 2rem;
-    min-height: 100vh;
-  }
-
-  .hero-text {
+    min-height: 100dvh;
     position: relative;
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    max-width: none;
-  }
-
-  .character-panel,
-  #stand {
-    position: relative;
-    grid-column: 2;
-    grid-row: 1;
-    height: min(60vh, 420px);
-    align-self: end;
-  }
-
-  .character-panel img,
-  #stand img {
-    height: 100%;
-    width: auto;
-  }
-
-  .character-panel::before,
-  #stand::before {
-    display: none;
-  }
-
-  .boite {
-    grid-column: 1 / 3; /* 👈 toute la largeur */
-    grid-row: 2;
-
-    width: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-  }
-
-  section,
-footer {
-  width: min(100% - 2rem, 920px);
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 0;
-}
-
-section {
-  min-height: 100vh;
-  padding-block: clamp(3rem, 7vh, 5rem);
-}
-
-  #lore .section-content,
-  .cv-panel,
-  .cv {
-    grid-template-columns: 1fr;
-  }
-
-  .parent {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  html {
-    font-size: 17px;
-  }
-
-  h1 {
-    font-size: clamp(2.45rem, 14vw, 4rem);
-    letter-spacing: .14rem;
-  }
-
-  #container {
-    height: 8.8rem;
-  }
-
-  .hero-card,
-  .description {
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-
-  .boite {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .info_languages {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .skill-box {
-    min-height: 115px;
-  }
-
-  .profile-frame img,
-  #main_menu img {
-    height: 260px;
-  }
-
-  .project-card,
-  .div1,
-  .div2,
-  .div3 {
-    height: 235px;
-  }
-
-  .project-info {
-    font-size: .98rem;
-  }
-
-  .cv-panel,
-  .cv {
-    grid-template-columns: 1fr;
-  }
-
-  .cv-panel > div:first-child,
-  .cv-panel > div:last-child,
-  .cv > div:first-child,
-  .cv > div:last-child {
-    display: none;
-  }
-
-  #abstergo {
-    justify-content: flex-start;
-  }
-
-  #scroll_to_top {
-    right: 1rem;
-    bottom: 1rem;
-  }
-
-  .hero {
-    grid-template-columns: minmax(0, 1fr) 105px;
-    gap: .5rem;
-    padding: 4.5rem .75rem 1.5rem;
-  }
-
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 120px;
-    grid-template-rows: auto auto auto;
-    align-content: center;
-    align-items: center;
-    gap: 1rem .7rem;
-    padding: 4.5rem .75rem 2rem;
+    padding: 5rem 1.5rem 3rem;
+    gap: 1.5rem;
     overflow: hidden;
   }
-
+ 
   .hero-text {
-    display: contents;
-    position: static;
-    width: auto;
-    padding: 0;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 13vw, 3.2rem);
-    letter-spacing: .1rem;
-    line-height: .95;
-    position: absolute;
-    inset: auto;
-    text-align: center;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(100%, 520px);
+    z-index: 5;
   }
 
   #container {
-    position: absolute;
-    top: 6rem; /* ajuste selon ton menu */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    z-index: 10;
-    text-align: center;
-    height: 7rem;
-  }
-
-  .hero-card {
-    grid-column: 1 / 2;
-    grid-row: 2;
-    width: 100%;
-    font-size: .86rem;
-    line-height: 1.55;
-    padding: .8rem .85rem;
+    height: clamp(7rem, 14vw, 10rem);
   }
 
   .character-panel,
   #stand {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-    position: relative;
-    right: auto;
-    bottom: auto;
-    height: 38vh;
-    align-self: end;
-    justify-self: center;
-    z-index: 4;
+    position: absolute;
+    right: -1rem;         /* légèrement hors cadre = effet cinématique */
+    bottom: 0;
+    height: min(90vh, 620px);
+    width: auto;
+    z-index: 2;
+    pointer-events: none;
+    /* Dégradé bas → disparition naturelle des pieds */
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 18%);
+    mask-image: linear-gradient(to top, transparent 0%, black 18%);
   }
 
   .character-panel::before,
@@ -1162,6 +1035,100 @@ section {
     height: 100%;
     width: auto;
     object-fit: contain;
+    opacity: .88;
+    filter: drop-shadow(0 18px 24px rgba(0,0,0,.48));
+  }
+
+  /* --- Sections --- */
+  section {
+    width: 100%;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: clamp(3.5rem, 8vh, 6rem) 1.5rem;
+    min-height: 100dvh;
+  }
+
+  footer {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 860px;
+  }
+
+  #lore .section-content {
+    grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  }
+
+  .parent {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cv-panel,
+  .cv {
+    grid-template-columns: 80px minmax(0, 1fr) 80px;
+  }
+}
+
+/* ===== BREAKPOINT MOBILE ≤ 640px ===== */
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+
+  /* --- Hero mobile --- */
+  .hero {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 38vw;
+    grid-template-rows: auto auto auto;
+    align-content: center;
+    align-items: center;
+    gap: 1rem .75rem;
+    padding: 4.5rem .9rem 2rem;
+    overflow: hidden;
+  }
+ 
+  .hero-text {
+    /* grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    align-self: center; */
+    display: contents;
+
+  }
+
+  /* Titre : colonne 1, row 1 */
+  #container {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    position: relative;
+    width: 100%;
+    height: clamp(5.8rem, 20vw, 8rem);
+  }
+
+  h1 {
+    position: absolute;
+    inset: 0;
+    font-size: clamp(1.9rem, 11vw, 3rem);
+    letter-spacing: .08rem;
+    line-height: .95;
+    text-align: center;
+  }
+ 
+  /* Carte description : colonne 1, row 2 */
+  .hero-card {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    width: 100%;
+    font-size: .83rem;
+    line-height: 1.6;
+    padding: .75rem .9rem;
+    background: linear-gradient(90deg, rgba(255,255,255,.93), rgba(255,255,255,.68));
   }
 
   .boite {
@@ -1169,20 +1136,128 @@ section {
     grid-row: 3;
     width: 100%;
     justify-content: center;
-    min-height: 3rem;
-    margin-top: 0.3rem;
+    margin-top: 0;
   }
 
-  .intro {
-    font-size: .78rem;
+  /* --- Personnage : colonne droite, row 2 --- */
+  .character-panel,
+  #stand {
+    grid-column: 2 / 3;
+    grid-row: 2;
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100%;
+    height: 38vh !important;
+    justify-self: end;
+    align-self: end;
+    z-index: 3;
+    display: flex !important;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .character-panel::before,
+  #stand::before { display: none !important; }
+ 
+  .character-panel img,
+  #stand img {
+    width: auto;
+    height: 100% !important;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: bottom right;
+    opacity: .95;
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,.42));
+  }
+
+  /* --- Sections --- */
+  section {
+    padding: 3.5rem .9rem;
+    min-height: 100dvh;
+  }
+
+  #lore .section-content {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-frame img,
+  #main_menu img {
+    height: 240px;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .info_languages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skill-box {
+    min-height: 110px;
+  }
+
+  .parent {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card,
+  .div1, .div2, .div3,
+  .div4, .div5, .div6 {
+    height: 220px;
+  }
+
+  .cv-panel,
+  .cv {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-panel > div:first-child,
+  .cv-panel > div:last-child {
+    display: none;
+  }
+
+  #abstergo {
+    justify-content: flex-start;
+  }
+
+  footer p {
+    padding: 1.5rem 1rem;
+    font-size: .88rem;
   }
 }
 
-@media (max-width: 480px) {
-  section {
-    min-height: 100vh;
+/* ===== BREAKPOINT TRÈS PETIT ≤ 400px ===== */
+@media (max-width: 400px) {
+  .hero {
+    grid-template-columns: 1fr auto;
+    padding: 4rem .75rem 1.5rem;
+  }
+
+  h1 {
+  font-size: clamp(1.65rem, 13vw, 2.5rem);
+  letter-spacing: .06rem;
+  }
+
+
+  .hero-card {
+    font-size: .8rem;
+    padding: .65rem .8rem;
+  }
+
+  .character-panel,
+  #stand {
+    width: 36vw;
+    max-width: 170px;
+  }
+
+  .boite {
     width: 100%;
-    padding: 3rem 1rem;
+    justify-content: center;
   }
 
   .info_languages {
@@ -1190,10 +1265,12 @@ section {
   }
 
   .project-card,
-  .div1,
-  .div2,
-  .div3 {
-    height: auto;
-    min-height: 235px;
+  .div1, .div2, .div3,
+  .div4, .div5, .div6 {
+    height: 200px;
+  }
+
+  .skill-box {
+    min-height: 100px;
   }
 }

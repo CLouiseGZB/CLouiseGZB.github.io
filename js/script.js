@@ -97,15 +97,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const boite = document.querySelector('.boite');
   if (!boite) return;
 
-  const intro = boite.querySelector('.intro');
-  const image = boite.querySelector('.image');
   const activationSound = new Audio('/sound/Memory -Sequence-Synchronized.mp3');
 
   boite.addEventListener('click', () => {
-    activationSound.play().catch(() => {});
-    if (intro) intro.style.display = 'none';
-    if (image) image.style.display = 'none';
-  });
+  activationSound.play().catch(() => {});
+
+  boite.classList.add('is-syncing');
+
+  boite.innerHTML = `
+    <div class="blueprint" aria-hidden="true">
+      ${Array.from({ length: 20 }, () => `
+        <div class="bar">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+        </div>
+      `).join('')}
+    </div>
+    <span class="sync-text">Synchronisation en cours...</span>
+  `;
+
+}, { once: true });
 });
 
 // ===== SON RETOUR EN HAUT =====
@@ -201,3 +212,23 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 setActive('top');
+
+// ===== DESCRIPTION =====
+document.addEventListener('DOMContentLoaded', () => {
+  const memoryBtn = document.querySelector('.sync-trigger');
+  const description = document.querySelector('.main_menu.description');
+
+  if (!memoryBtn || !description) return;
+
+  memoryBtn.addEventListener('click', () => {
+    description.classList.toggle('expanded');
+
+    memoryBtn.classList.remove('sync-glitch');
+    void memoryBtn.offsetWidth;
+    memoryBtn.classList.add('sync-glitch');
+
+    memoryBtn.textContent = description.classList.contains('expanded')
+      ? 'Désynchroniser mémoire'
+      : 'Synchroniser mémoire';
+  });
+});

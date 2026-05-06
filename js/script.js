@@ -225,3 +225,66 @@ document.addEventListener('DOMContentLoaded', () => {
       : 'Synchroniser mémoire';
   });
 });
+
+// ===== PAGINATION PROJETS =====
+document.addEventListener('DOMContentLoaded', () => {
+  const parent = document.querySelector('.parent');
+  const pagination = document.querySelector('.project-pagination');
+  if (!parent || !pagination) return;
+
+  const projects = [...parent.querySelectorAll('a')];
+  const perPage = 6;
+  const totalPages = Math.ceil(projects.length / perPage);
+
+  if (totalPages <= 1) return;
+
+  let currentPage = 1;
+
+  function showPage(page) {
+    currentPage = page;
+
+    projects.forEach((p, index) => {
+      const pageOfProject = Math.ceil((index + 1) / perPage);
+      p.style.display = pageOfProject === page ? 'block' : 'none';
+    });
+
+    [...pagination.querySelectorAll('.page-btn')].forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
+    });
+
+    // Désactive les flèches aux extrémités
+    prevBtn.disabled = page === 1;
+    nextBtn.disabled = page === totalPages;
+  }
+
+  // Flèche gauche
+  const prevBtn = document.createElement('button');
+  prevBtn.textContent = '←';
+  prevBtn.setAttribute('aria-label', 'Page précédente');
+  prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) showPage(currentPage - 1);
+  });
+  pagination.appendChild(prevBtn);
+
+  // Boutons numérotés
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.textContent = `0${i}`;
+    btn.dataset.page = i;
+    btn.classList.add('page-btn');
+    btn.setAttribute('aria-label', `Page ${i}`);
+    btn.addEventListener('click', () => showPage(i));
+    pagination.appendChild(btn);
+  }
+
+  // Flèche droite
+  const nextBtn = document.createElement('button');
+  nextBtn.textContent = '→';
+  nextBtn.setAttribute('aria-label', 'Page suivante');
+  nextBtn.addEventListener('click', () => {
+    if (currentPage < totalPages) showPage(currentPage + 1);
+  });
+  pagination.appendChild(nextBtn);
+
+  showPage(1);
+});

@@ -1025,12 +1025,30 @@ footer {
   margin-left: clamp(310px, 28vw, 520px);
   border-top: 1px solid rgba(221,221,221,.75);
   color: rgba(255,255,255,.82);
+  display: flex;
+    justify-content: center;
 }
 
 footer p {
   padding: 2rem;
   text-align: left;
   font-size: .95rem;
+}
+
+footer .fa-github {
+  font-size: 1.3rem;
+  vertical-align: middle;
+  margin-left: .6rem;
+  opacity: .82;
+  transition: opacity .2s ease;
+}
+
+footer .fa-github:hover {
+  opacity: .6;
+}
+
+footer a:hover .fa-github {
+  animation: syncGlitch .35s ease;
 }
 
 /* ===== ACCESSIBILITÉ MOUVEMENTS ===== */
@@ -1203,10 +1221,6 @@ footer p {
     max-width: 860px;
   }
 
-  #lore .section-content {
-    grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
-  }
-
   .parent {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1214,6 +1228,23 @@ footer p {
   .cv-panel,
   .cv {
     grid-template-columns: 80px minmax(0, 1fr) 80px;
+  }
+}
+
+@media (min-width: 530px) and (max-width: 1050px) {
+  .profile-frame {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .profile-frame img,
+  #main_menu img {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    object-position: 50% 15%;
   }
 }
 
@@ -1228,12 +1259,12 @@ footer p {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 38vw;
     grid-template-rows: auto auto auto;
-
-    min-height: auto; /* 🔥 important */
+    min-height: unset;
+    height: auto;
     padding: 2rem .9rem 1.5rem; /* ↓ réduit */
-    
+    margin-top: 15%;
     gap: .6rem .5rem; /* ↓ réduit */
-    
+    overflow: hidden;
     align-content: start; /* 🔥 plus centré */
     align-items: start;
   }
@@ -1267,6 +1298,7 @@ footer p {
     font-size: .83rem;
     line-height: 1.6;
     padding: .75rem .9rem;
+    align-self: center;
     background: linear-gradient(90deg, rgba(255,255,255,.93), rgba(255,255,255,.68));
   }
 
@@ -1288,7 +1320,8 @@ footer p {
     right: auto !important;
     bottom: auto !important;
     width: 100%;
-    height: 38vh !important;
+    height: auto !important;
+    min-height: 220px;
     justify-self: end;
     align-self: end;
     z-index: 3;
@@ -1307,7 +1340,7 @@ footer p {
   #stand img {
     width: auto;
     height: 100% !important;
-    max-height: 100%;
+    max-height: 280px;
     object-fit: contain;
     object-position: bottom right;
     opacity: .95;
@@ -1382,6 +1415,11 @@ footer p {
   }
 
   /* --- CV --- */
+  #cv{
+    min-height: unset;
+    padding-bottom: 3rem;
+  }
+
   .cv-panel,
   .cv {
     grid-template-columns: 1fr;
@@ -1394,12 +1432,9 @@ footer p {
 
   /* --- DIVERS --- */
   section {
-    padding: 3.5rem .9rem;
-    min-height: 100dvh;
-  }
-
-  #abstergo {
-    justify-content: flex-start;
+    padding: 3rem .9rem;
+    min-height: unset;
+    height: auto;
   }
 
   footer p {
@@ -1430,6 +1465,11 @@ footer p {
   .character-panel,
   #stand {
     height: 32vh !important;
+  }
+
+  .character-panel img,
+  #stand img {
+    max-height: 240px;
   }
 
   .profile-frame img,
@@ -1465,5 +1505,9 @@ footer p {
   .boite {
     width: 100%;
     justify-content: center;
+  }
+
+  section {
+    padding: 2.5rem .75rem 2rem;
   }
 }

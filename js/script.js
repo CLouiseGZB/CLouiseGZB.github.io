@@ -1,12 +1,3 @@
-/* ============================================================
-   script.js — version corrigée complète
-   Corrections :
-   - ReferenceError "navLinks" → supprimé, on utilise navItems
-   - Menu mobile : toggle is-open + overlay + fermeture au clic lien
-   - aria-expanded mis à jour
-   - Overlay backdrop ajouté dynamiquement
-   ============================================================ */
-
 // ===== ANIMATION H2 =====
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -36,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.classList.add('is-open');
     menuBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden'; // bloque le scroll derrière
+    menuBtn.style.fontSize = '0'; // cache le texte du bouton pour éviter les doublons avec l'overlay 
   }
 
   function closeMenu() {
@@ -43,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.classList.remove('is-open');
     menuBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    menuBtn.style.fontSize = '';         // ← restaure le texte
   }
 
   menuBtn.addEventListener('click', () => {

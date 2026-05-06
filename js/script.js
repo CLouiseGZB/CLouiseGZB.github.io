@@ -255,6 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Désactive les flèches aux extrémités
     prevBtn.disabled = page === 1;
     nextBtn.disabled = page === totalPages;
+
+    // Remonte en haut de la section
+  document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
   }
 
   // Flèche gauche

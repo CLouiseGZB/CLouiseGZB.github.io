@@ -791,9 +791,10 @@ h2 {
   display: none;
 }
 
+
 /* ===== APTITUDES ===== */
 .info_languages {
-  width: min(100%, 820px);
+  width: 100%;
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(4, minmax(130px, 1fr));
@@ -826,7 +827,7 @@ h2 {
 
 /* ===== PROJETS ===== */
 .parent {
-  width: min(100%, 920px);
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
@@ -924,7 +925,7 @@ h3,
 }
 
 #abstergo {
-  width: min(100%, 920px);
+  width: 100%;
   margin-top: 1rem;
   display: flex;
   justify-content: flex-end;
@@ -943,7 +944,7 @@ h3,
 /* ===== CV ===== */
 .cv-panel,
 .cv {
-  width: min(100%, 860px);
+  width: 100%;
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr) 120px;
   align-items: center;
